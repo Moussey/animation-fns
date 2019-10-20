@@ -6,9 +6,9 @@ import {
 } from './old-model';
 import { FullPipe, TimePipe } from './pipe';
 import { Delay } from './delay';
-import { TimeStretch } from './time-stretch';
-import { LinearInterpolator } from './linear-interpolator';
-import { TimeHook } from './time-hook';
+import { TimeStretch } from './time/time-stretch';
+import { LinearPositionInterpolator } from './linear-interpolator';
+import { TimeHook } from './time/time-hook';
 
 export const MoveBetween = (
   from: Position,
@@ -26,7 +26,10 @@ export const MoveBetween = (
       TimeStretch(distanceDelta / velocity),
       TimeHook(1, doneFn)
     ]),
-    timePositionConverter: LinearInterpolator(from.position, to.position)
+    timePositionConverter: LinearPositionInterpolator(
+      from.position,
+      to.position
+    )
   });
 
   return convert;

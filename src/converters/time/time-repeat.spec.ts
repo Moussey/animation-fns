@@ -1,5 +1,5 @@
 import { Time, TimeConverter } from '../old-model';
-import { TimeRepeat } from '../time-repeat';
+import { TimeRepeat } from './time-repeat';
 
 export default fdescribe('TimeRepeat', () => {
   describe('For a valid interval', () => {

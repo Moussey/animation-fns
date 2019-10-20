@@ -1,16 +1,8 @@
-import { TimePositionConverter, Position, Time } from './old-model';
-import { Point } from './point';
+import { CartesianPosition, Time } from './model';
+import { Converter } from './converter';
 
-/**
- * Linear interpolates time to position between two points
- * @param start Position at t=0
- * @param end Position at t=1
- */
-export const LinearInterpolator = (
-  start: Point,
-  end: Point
-): TimePositionConverter => {
-  const linearInterpolate = (a: number, b: number, time: number): number => {
+export namespace LinearInterpolator {
+  const interpolate = (a: number, b: number) => ({ time }: Time): number => {
     if (time >= 1) {
       return b;
     }
@@ -19,11 +11,26 @@ export const LinearInterpolator = (
     }
     return time * (b - a) + a;
   };
-  const convert = (time: Time): Position => {
-    const x = linearInterpolate(start.x, end.x, time.time);
-    const y = linearInterpolate(start.y, end.y, time.time);
-    return { position: { x, y } };
+
+  export const Scalar = (
+    start: number,
+    end: number
+  ): Converter<Time, number> => {
+    const interpolator = interpolate(start, end);
+
+    return { convert: interpolator };
   };
 
-  return { convert };
-};
+  export const CartesianPosition = (
+    start: CartesianPosition,
+    end: CartesianPosition
+  ): Converter<Time, CartesianPosition> => {
+    const convert = (time: Time): CartesianPosition => {
+      const x = interpolate(start.x, end.x)(time);
+      const y = interpolate(start.y, end.y)(time);
+      return { x, y };
+    };
+
+    return { convert };
+  };
+}

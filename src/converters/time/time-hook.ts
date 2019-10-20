@@ -1,4 +1,4 @@
-import { TimeConverter, Time } from './old-model';
+import { TimeConverter, Time } from '../old-model';
 
 export const TimeHook = (at: number, hook: () => void): TimeConverter => {
   let hookCalled = false;

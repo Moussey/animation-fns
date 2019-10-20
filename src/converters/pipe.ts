@@ -1,41 +1,29 @@
-import {
-  TimeConverter,
-  PositionConverter,
-  TimePositionConverter,
-  Time,
-  Position
-} from './old-model';
-import { timeNoOp, positionNoOp } from './no-op-pipes';
+import { Transformer, Converter } from './converter';
+import { noOpTransform } from './no-op';
+import * as R from 'ramda';
 
-export const FullPipe = (params: {
-  timeConverter?: TimeConverter;
-  timePositionConverter: TimePositionConverter;
-  positionConverter?: PositionConverter;
-}): TimePositionConverter => {
-  const convert = (val: Time): Position => {
-    const timeConverter = params.timeConverter || timeNoOp();
-    const positionConverter = params.positionConverter || positionNoOp();
-    const convertedTime = timeConverter.convert(val);
-    const position = params.timePositionConverter.convert(convertedTime);
-    const convertedPosition = positionConverter.convert(position);
-    return convertedPosition;
+export const FullPipe = <From, To>(params: {
+  fromTransform?: Transformer<From>;
+  converter: Converter<From, To>;
+  toTransform?: Transformer<To>;
+}): Converter<From, To> => {
+  const convert = (val: From): To => {
+    const fromTransform = params.fromTransform || noOpTransform<From>();
+    const toTransform = params.toTransform || noOpTransform<To>();
+
+    return R.pipe(
+      fromTransform.convert,
+      params.converter.convert,
+      toTransform.convert
+    )(val);
   };
 
   return { convert };
 };
 
-export const TimePipe = (converters: TimeConverter[]): TimeConverter => {
-  const convert = (time: Time): Time =>
-    converters.reduce((t, c) => c.convert(t), time);
-
-  return { convert };
-};
-
-export const PositionPipe = (
-  converters: PositionConverter[]
-): PositionConverter => {
-  const convert = (position: Position): Position =>
-    converters.reduce((p, c) => c.convert(p), position);
+export const Reduce = <T>(transformers: Transformer<T>[]): Transformer<T> => {
+  const convert = (val: T): T =>
+    transformers.reduce((v, t) => t.convert(v), val);
 
   return { convert };
 };

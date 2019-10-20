@@ -1,4 +1,4 @@
-import { TimeConverter, Time } from './old-model';
+import { TimeConverter, Time } from '../old-model';
 
 export const TimeReverse = (after: number): TimeConverter => {
   const convert = (val: Time): Time => {

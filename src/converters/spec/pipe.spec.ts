@@ -1,5 +1,5 @@
 import { Delay } from '../delay';
-import { TimeStretch } from '../time-stretch';
+import { TimeStretch } from '../time/time-stretch';
 import { TimePipe } from '../pipe';
 
 export default describe('TimePipe', () => {

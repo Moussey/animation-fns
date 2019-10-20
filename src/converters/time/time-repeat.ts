@@ -1,4 +1,4 @@
-import { TimeConverter, Time } from './old-model';
+import { TimeConverter, Time } from '../old-model';
 
 export const TimeRepeat = (start: number, end: number): TimeConverter => {
   if (end <= start) {

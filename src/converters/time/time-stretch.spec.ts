@@ -1,4 +1,4 @@
-import { TimeStretch } from '../time-stretch';
+import { TimeStretch } from './time-stretch';
 
 export default describe('TimeStretch', () => {
   it('Stretches time by the given factor', () => {

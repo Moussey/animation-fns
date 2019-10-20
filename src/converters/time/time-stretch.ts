@@ -1,4 +1,4 @@
-import { TimeConverter, Time } from './old-model';
+import { TimeConverter, Time } from '../old-model';
 
 /**
  * Scales the time by factor
