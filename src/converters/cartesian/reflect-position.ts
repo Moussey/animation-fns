@@ -1,4 +1,4 @@
-import { PositionConverter, Position } from './old-model';
+import { PositionConverter, Position } from '../old-model';
 
 export const reflectX = (x?: number): PositionConverter => {
   const convert = (val: Position): Position => {

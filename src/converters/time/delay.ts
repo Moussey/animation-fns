@@ -1,5 +1,5 @@
-import { Transformer } from './converter';
-import { Time } from './model';
+import { Transformer } from '../converter';
+import { Time } from './time';
 
 export const Delay = (amount: number): Transformer<Time> => {
   const convert = (val: Time): Time => {

@@ -1,6 +1,7 @@
-import { TimeConverter, Time } from '../old-model';
+import { Transformer } from '../converter';
+import { Time } from './time';
 
-export const TimeRepeat = (start: number, end: number): TimeConverter => {
+export const TimeRepeat = (start: number, end: number): Transformer<Time> => {
   if (end <= start) {
     throw Error('For TimeRepeat pipe, end must be after start');
   }

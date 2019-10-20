@@ -1,6 +1,7 @@
-import { TimeConverter, Time } from '../old-model';
+import { Transformer } from '../converter';
+import { Time } from './time';
 
-export const TimeHook = (at: number, hook: () => void): TimeConverter => {
+export const TimeHook = (at: number, hook: () => void): Transformer<Time> => {
   let hookCalled = false;
   const convert = (val: Time): Time => {
     if (val.time >= at && !hookCalled) {

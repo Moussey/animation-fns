@@ -1,12 +1,13 @@
-import { Delay } from '../delay';
+import { Delay } from '../time/delay';
 import { TimeStretch } from '../time/time-stretch';
-import { TimePipe } from '../pipe';
+import { Reduce } from '../pipe';
+import { Time } from '../time/time';
 
-export default describe('TimePipe', () => {
+describe('Reduce', () => {
   it('Applies the converters in the given order', () => {
     const delay = Delay(10);
     const stretch = TimeStretch(2);
-    const pipe = TimePipe([delay, stretch]);
+    const pipe = Reduce<Time>(delay, stretch);
 
     const time = 100;
     const convertedTime = pipe.convert({ time }).time;

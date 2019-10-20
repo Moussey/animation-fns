@@ -21,7 +21,9 @@ export const FullPipe = <From, To>(params: {
   return { convert };
 };
 
-export const Reduce = <T>(transformers: Transformer<T>[]): Transformer<T> => {
+export const Reduce = <T>(
+  ...transformers: Transformer<T>[]
+): Transformer<T> => {
   const convert = (val: T): T =>
     transformers.reduce((v, t) => t.convert(v), val);
 

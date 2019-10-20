@@ -1,4 +1,4 @@
-import { Delay } from '../delay';
+import { Delay } from './delay';
 
 export default describe('Delay', () => {
   it('Delays time by the given amount', () => {
