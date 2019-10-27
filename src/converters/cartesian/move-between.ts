@@ -4,11 +4,11 @@ import {
   Time,
   distanceBetween
 } from '../old-model';
-import { FullPipe, TimePipe } from '../pipe';
+import { FullPipe, TimePipe } from '../reduce';
 import { Delay } from '../time/delay';
 import { TimeStretch } from '../time/time-stretch';
 import { LinearPositionInterpolator } from '../linear-interpolator';
-import { TimeHook } from '../time/time-hook';
+import { TimeHook } from '../time/hook';
 
 export const MoveBetween = (
   from: Position,

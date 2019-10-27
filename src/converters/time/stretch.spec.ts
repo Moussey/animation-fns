@@ -1,9 +1,9 @@
-import { TimeStretch } from './time-stretch';
+import { Stretch } from './stretch';
 
-export default describe('TimeStretch', () => {
+describe('Stretch', () => {
   it('Stretches time by the given factor', () => {
     const time = 100;
-    const timeStretch = TimeStretch(200);
+    const timeStretch = Stretch(200);
     const convertedTime = timeStretch.convert({ time }).time;
     expect(convertedTime).toBe(0.5);
   });

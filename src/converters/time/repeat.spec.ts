@@ -1,12 +1,13 @@
-import { Time, TimeConverter } from '../old-model';
-import { TimeRepeat } from './time-repeat';
+import { Repeat } from './repeat';
+import { Transformer } from '../converter';
+import { Time } from './time';
 
-export default fdescribe('TimeRepeat', () => {
+describe('Repeat', () => {
   describe('For a valid interval', () => {
-    let timeRepeat: TimeConverter;
+    let timeRepeat: Transformer<Time>;
 
     beforeEach(() => {
-      timeRepeat = TimeRepeat(2, 8);
+      timeRepeat = Repeat(2, 8);
     });
 
     it('A time inside the interval is itself', () => {
@@ -33,7 +34,7 @@ export default fdescribe('TimeRepeat', () => {
 
   describe('For an invalid interval', () => {
     it('Throws exception', () => {
-      expect(() => TimeRepeat(8, 2)).toThrowError();
+      expect(() => Repeat(8, 2)).toThrowError();
     });
   });
 });

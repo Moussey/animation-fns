@@ -1,9 +1,9 @@
 import { Transformer } from '../converter';
 import { Time } from './time';
 
-export const TimeRepeat = (start: number, end: number): Transformer<Time> => {
+export const Repeat = (start: number, end: number): Transformer<Time> => {
   if (end <= start) {
-    throw Error('For TimeRepeat pipe, end must be after start');
+    throw Error('For Repeat pipe, end must be after start');
   }
 
   const convert = (val: Time): Time => {

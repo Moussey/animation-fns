@@ -1,1 +1,1 @@
-export const curriedAdd = (a: number) => (b: number) => a + b;
+export * from './converters';

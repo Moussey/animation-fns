@@ -1,7 +1,7 @@
 import { Transformer } from '../converter';
 import { Time } from './time';
 
-export const TimeReverse = (after: number): Transformer<Time> => {
+export const Reverse = (after: number): Transformer<Time> => {
   const convert = (val: Time): Time => {
     if (val.time < after) {
       return val;
