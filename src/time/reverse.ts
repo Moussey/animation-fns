@@ -1,4 +1,4 @@
-import { Transformer } from '../converter';
+import { Transformer } from '../converters/converter';
 import { Time } from './time';
 
 export const Reverse = (after: number): Transformer<Time> => {

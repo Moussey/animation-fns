@@ -1,4 +1,4 @@
-import { Transformer } from '../converter';
+import { Transformer } from '../converters/converter';
 import { Time } from './time';
 
 export const Hook = (at: number, hook: () => void): Transformer<Time> => {

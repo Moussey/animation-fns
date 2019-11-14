@@ -1,6 +1,4 @@
-import { Converter } from './converter';
-import { CartesianPosition } from './cartesian/cartesian';
-import { Time } from './time/time';
+import { Time } from '../time/time';
 
 export const LinearInterpolate = (a: number, b: number) => ({
   time

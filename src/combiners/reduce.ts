@@ -1,4 +1,4 @@
-import { Transformer } from '../converter';
+import { Transformer } from '../converters/converter';
 
 export const Reduce = <T>(
   ...transformers: Transformer<T>[]

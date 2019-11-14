@@ -1,4 +1,4 @@
-import { Converter } from '../converter';
+import { Converter } from '../converters/converter';
 import { CartesianPosition } from '../cartesian/cartesian';
 import { PolarPosition } from './polar-coords';
 

@@ -1,6 +1,6 @@
 import { PolarPosition } from './polar-coords';
 import { CartesianPosition } from '../cartesian/cartesian';
-import { Converter } from '../converter';
+import { Converter } from '../converters/converter';
 
 export const PolarToCartesian = (): Converter<
   PolarPosition,
