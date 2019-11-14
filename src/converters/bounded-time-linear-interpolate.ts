@@ -1,6 +1,6 @@
 import { Time } from '../time/time';
 
-export const LinearInterpolate = (a: number, b: number) => ({
+export const BoundedTimeLinearInterpolate = (a: number, b: number) => ({
   time
 }: Time): number => {
   if (time >= 1) {
@@ -11,5 +11,3 @@ export const LinearInterpolate = (a: number, b: number) => ({
   }
   return time * (b - a) + a;
 };
-
-export namespace LinearInterpolator {}
