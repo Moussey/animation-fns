@@ -1,3 +1,9 @@
 export { CartesianPosition } from './cartesian';
-export { LinearInterpolate } from './linear-interpolate';
-export { ReflectX, ReflectY } from './reflect-position';
+import { LinearInterpolate } from './linear-interpolate';
+import { ReflectX, ReflectY } from './reflect-position';
+
+export const Cartesian = {
+  LinearInterpolate,
+  ReflectX,
+  ReflectY
+};

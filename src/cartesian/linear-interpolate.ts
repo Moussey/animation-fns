@@ -1,15 +1,18 @@
-import { BoundedTimeLinearInterpolate } from '../converters';
 import { CartesianPosition } from './cartesian';
 import { Converter } from '../converters/converter';
 import { Time } from '../time';
+import { Scalar } from '../scalar';
 
 export const LinearInterpolate = (
   start: CartesianPosition,
   end: CartesianPosition
 ): Converter<Time, CartesianPosition> => {
+  const xConvert = Scalar.BoundedLinearInterpolate(start.x, end.x);
+  const yConvert = Scalar.BoundedLinearInterpolate(start.y, end.y);
+
   const convert = (time: Time): CartesianPosition => {
-    const x = BoundedTimeLinearInterpolate(start.x, end.x)(time);
-    const y = BoundedTimeLinearInterpolate(start.y, end.y)(time);
+    const x = xConvert.convert(time);
+    const y = yConvert.convert(time);
     return { x, y };
   };
 
