@@ -1,6 +1,6 @@
-import * as Time from './time';
-import * as CartesianPosition from './cartesian';
-import * as Combiners from './combiners';
-import * as Converters from './converters';
-
-export { Time, CartesianPosition, Combiners, Converters };
+export * from './cartesian';
+export * from './combiners';
+export * from './converters';
+export * from './polar';
+export * from './scalar';
+export * from './time';

@@ -1,5 +1,5 @@
 import { Converter } from '../converters/converter';
-import { PolarPosition } from './polar-coords';
+import { PolarPosition } from './polar-position';
 import { CartesianPosition } from '../cartesian/cartesian';
 import { CartesianToPolar } from './cartesian-to-polar';
 
