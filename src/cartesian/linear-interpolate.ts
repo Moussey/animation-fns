@@ -1,7 +1,7 @@
 import { BoundedTimeLinearInterpolate } from '../converters';
 import { CartesianPosition } from './cartesian';
 import { Converter } from '../converters/converter';
-import { Time } from '../time/time';
+import { Time } from '../time';
 
 export const LinearInterpolate = (
   start: CartesianPosition,
