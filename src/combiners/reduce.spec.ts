@@ -1,10 +1,10 @@
-import { Delay, Stretch, Time } from '../time';
+import { Time, TimeTransformers } from '../time';
 import { Reduce } from './reduce';
 
 describe('Reduce', () => {
   it('Applies the converters in the given order', () => {
-    const delay = Delay(10);
-    const stretch = Stretch(2);
+    const delay = TimeTransformers.Delay(10);
+    const stretch = TimeTransformers.Stretch(2);
     const pipe = Reduce<Time>(delay, stretch);
 
     const time = 100;

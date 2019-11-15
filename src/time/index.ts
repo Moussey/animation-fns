@@ -1,6 +1,13 @@
 export { Time } from './time';
 
-export { Stretch } from './stretch';
-export { Hook } from './hook';
-export { Delay } from './delay';
-export { Reverse } from './reverse';
+import { Stretch } from './stretch';
+import { Hook } from './hook';
+import { Delay } from './delay';
+import { Reverse } from './reverse';
+
+export const TimeTransformers = {
+  Stretch,
+  Hook,
+  Delay,
+  Reverse
+};
