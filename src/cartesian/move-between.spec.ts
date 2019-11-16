@@ -8,12 +8,7 @@ describe('MoveBetween', () => {
     let converter: Converter<Time, CartesianPosition>;
 
     beforeEach(() => {
-      converter = MoveBetween(
-        { x: 0, y: 0 },
-        { x: 10, y: 10 },
-        Math.sqrt(2),
-        5
-      );
+      converter = MoveBetween({ x: 0, y: 0 }, { x: 10, y: 10 }, Math.SQRT2, 5);
     });
 
     it('At t<5 position is (0,0)', () => {
